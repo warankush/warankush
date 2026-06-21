@@ -1,18 +1,56 @@
 import './App.css';
 
+function SeoIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="11" cy="11" r="5.5" />
+      <path d="m15.2 15.2 4.1 4.1" />
+      <path d="M9 11h4" />
+      <path d="M11 9v4" />
+    </svg>
+  );
+}
+
+function MetaAdsIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 4a8 8 0 1 0 8 8" />
+      <path d="M12 8v4l3 2" />
+      <circle cx="12" cy="12" r="2.2" />
+      <path d="M19 5h-4" />
+      <path d="M19 5v4" />
+    </svg>
+  );
+}
+
+function SmmIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M7 12.5 17 6.5" />
+      <path d="M7 12.5 17 18.5" />
+      <circle cx="6" cy="13" r="2.2" />
+      <circle cx="18" cy="7" r="2.2" />
+      <circle cx="18" cy="17" r="2.2" />
+    </svg>
+  );
+}
+
 const services = [
   {
     title: 'SEO Strategy',
+    Icon: SeoIcon,
     description:
       'Keyword research, on-page optimization, content planning, and technical fixes designed to improve rankings and bring in qualified traffic.',
   },
   {
     title: 'Meta Ads',
+    Icon: MetaAdsIcon,
     description:
       'Audience targeting, ad creative testing, and conversion-focused campaign management for lead generation and stronger return on ad spend.',
   },
   {
     title: 'Social Media Marketing',
+    Icon: SmmIcon,
     description:
       'Content calendars, brand storytelling, and engagement strategies that build trust, improve reach, and keep the brand active online.',
   },
@@ -131,7 +169,9 @@ function App() {
         <div className="service-grid">
           {services.map((service) => (
             <article className="service-card" key={service.title}>
-              <div className="service-icon" />
+              <div className="service-icon" aria-hidden="true">
+                <service.Icon />
+              </div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
             </article>
