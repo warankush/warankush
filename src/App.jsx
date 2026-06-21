@@ -1,5 +1,14 @@
 import './App.css';
 
+function WarankushLogo() {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <rect x="2.5" y="2.5" width="27" height="27" rx="9" />
+      <path d="M8 10 12.1 22 16 12.6 19.9 22 24 10" />
+    </svg>
+  );
+}
+
 function SeoIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -71,8 +80,11 @@ function App() {
   return (
     <main className="page-shell">
       <header className="site-nav" aria-label="Primary navigation">
-        <a className="site-brand" href="#home">
-          Ankush Jaiswar
+        <a className="site-brand" href="#home" aria-label="Warankush home">
+          <span className="site-brand-mark" aria-hidden="true">
+            <WarankushLogo />
+          </span>
+          <span className="site-brand-text">Warankush</span>
         </a>
         <nav className="site-links">
           <a href="#home">Home</a>
