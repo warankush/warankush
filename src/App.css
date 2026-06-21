@@ -340,6 +340,9 @@ h3 {
 }
 
 .profile-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
   width: 160px;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -349,6 +352,27 @@ h3 {
     linear-gradient(135deg, rgba(185, 28, 28, 0.95), rgba(255, 84, 84, 0.2));
   box-shadow: 0 0 0 18px rgba(239, 68, 68, 0.08);
   animation: floatRing 5.5s ease-in-out infinite;
+}
+
+.profile-monogram {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(5, 5, 5, 0.18);
+  color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 30px rgba(239, 68, 68, 0.16);
+  animation: monogramPulse 3.8s ease-in-out infinite;
 }
 
 .profile-label {
@@ -684,6 +708,19 @@ h3 {
 
   50% {
     transform: translateY(-10px) translateX(4px);
+  }
+}
+
+@keyframes monogramPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 30px rgba(239, 68, 68, 0.16);
+  }
+
+  50% {
+    transform: scale(1.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 0 42px rgba(239, 68, 68, 0.28);
   }
 }
 
