@@ -25,10 +25,40 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.12), transparent 26%),
     radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.05), transparent 24%),
     linear-gradient(180deg, #050505 0%, #101010 55%, #000000 100%);
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: auto;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(70px);
+  opacity: 0.48;
+}
+
+body::before {
+  top: -8rem;
+  left: -10rem;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.35), transparent 68%);
+  animation: bgDrift 18s ease-in-out infinite;
+}
+
+body::after {
+  right: -10rem;
+  bottom: -12rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 66%);
+  animation: bgFloat 22s ease-in-out infinite;
 }
 
 a {
@@ -48,4 +78,26 @@ svg {
 
 #root {
   min-height: 100vh;
+}
+
+@keyframes bgDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(3rem, 2rem, 0) scale(1.08);
+  }
+}
+
+@keyframes bgFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-2rem, -1.5rem, 0) scale(1.05);
+  }
 }
