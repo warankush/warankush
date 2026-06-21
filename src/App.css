@@ -93,12 +93,27 @@
   background: linear-gradient(180deg, rgba(18, 18, 18, 0.96), rgba(8, 8, 8, 0.98));
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  animation: sectionReveal 720ms ease-out both;
 }
 
 .section-card:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 84, 84, 0.36);
   box-shadow: 0 38px 90px rgba(0, 0, 0, 0.68);
+}
+
+.section-card::after {
+  content: '';
+  position: absolute;
+  inset: -30% 0 auto;
+  height: 55%;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.08) 46%, transparent 70%);
+  transform: translateX(-120%) skewY(-8deg);
+  pointer-events: none;
+}
+
+.section-card:hover::after {
+  animation: shimmerSweep 900ms ease forwards;
 }
 
 .section-card::before {
@@ -286,6 +301,15 @@ h3 {
 
 .hero-stats div {
   padding: 18px;
+  animation: popIn 620ms ease-out both;
+}
+
+.hero-stats div:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.hero-stats div:nth-child(3) {
+  animation-delay: 240ms;
 }
 
 .hero-stats strong {
@@ -364,6 +388,18 @@ h3 {
   padding: 22px;
 }
 
+.about-grid article {
+  animation: liftFade 700ms ease-out both;
+}
+
+.about-grid article:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.about-grid article:nth-child(3) {
+  animation-delay: 240ms;
+}
+
 .about-grid p,
 .service-card p {
   margin-top: 12px;
@@ -376,6 +412,29 @@ h3 {
 .service-card {
   display: grid;
   gap: 12px;
+  position: relative;
+  overflow: hidden;
+  animation: liftFade 720ms ease-out both;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: auto -20% -45% auto;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.18), transparent 68%);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.service-card:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.service-card:nth-child(3) {
+  animation-delay: 240ms;
 }
 
 .service-icon {
@@ -388,6 +447,15 @@ h3 {
   align-items: center;
   justify-content: center;
   color: #ffffff;
+  animation: iconFloat 3.8s ease-in-out infinite;
+}
+
+.service-card:nth-child(2) .service-icon {
+  animation-delay: 180ms;
+}
+
+.service-card:nth-child(3) .service-icon {
+  animation-delay: 360ms;
 }
 
 .service-icon svg {
@@ -412,6 +480,19 @@ h3 {
   border: 1px solid rgba(255, 84, 84, 0.2);
   background: rgba(20, 20, 20, 0.82);
   color: #ffffff;
+  animation: popIn 600ms ease-out both;
+}
+
+.skill-pill:nth-child(3n + 1) {
+  animation-delay: 0ms;
+}
+
+.skill-pill:nth-child(3n + 2) {
+  animation-delay: 100ms;
+}
+
+.skill-pill:nth-child(3n) {
+  animation-delay: 200ms;
 }
 
 .contact-layout {
@@ -524,6 +605,63 @@ h3 {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes liftFade {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-3px) rotate(-2deg);
+  }
+}
+
+@keyframes shimmerSweep {
+  from {
+    transform: translateX(-120%) skewY(-8deg);
+  }
+
+  to {
+    transform: translateX(220%) skewY(-8deg);
   }
 }
 
