@@ -122,7 +122,9 @@ function App() {
 
         <div className="hero-panel">
           <div className="profile-card">
-            <div className="profile-ring" />
+            <div className="profile-ring" aria-hidden="true">
+              <span className="profile-monogram">AJ</span>
+            </div>
             <div className="profile-content">
               <span className="profile-label">SEO, Meta Ads, Social Media</span>
               <h2>Performance marketing with a clean, conversion-first approach.</h2>
